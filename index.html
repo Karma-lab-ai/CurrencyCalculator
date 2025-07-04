@@ -14,7 +14,12 @@
         th, td { border: 1px solid #aaa; padding: 4px 8px; text-align: center; } /* reduced padding */
         th { background: #f0f0f0; }
         button { padding: 8px 16px; font-size: 16px; }
-        .frozen { background: #eee; color: #888; }
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            touch-action: manipulation;
+	}
+	.frozen { background: #eee; color: #888; }
         .currency-cell {
             display: flex;
             align-items: center;
