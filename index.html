@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Dipu's Calculator</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
+        body { font-family: Arial, sans-serif; margin: 10px; }
         table { border-collapse: collapse; width: 400px; margin-bottom: 20px; }
         th, td { border: 1px solid #aaa; padding: 4px 8px; text-align: center; } /* reduced padding */
         th { background: #f0f0f0; }
@@ -58,7 +58,7 @@
         /* Responsive styles */
         @media (max-width: 600px) {
             body {
-                margin: 8px;
+                margin: 2px;
             }
             table {
                 width: 100%;
@@ -109,7 +109,8 @@
     </table>
     <button id="save-btn">Save (Freeze Calculation)</button>
     <button id="export-table-image-btn">Export Table as Image</button>
-    <script>
+    <button id="active-btn">UnFreeze</button>
+   <script>
 	document.ondblclick = function (e) {
              e.preventDefault();
 	}
@@ -278,6 +279,14 @@
             document.getElementById('save-btn').disabled = true;
             document.getElementById('save-btn').classList.add('frozen');
         }
+	// UnFreeze calculation on save
+        function unfreezeCalculation() {
+            denominations.forEach((_, idx) => {
+                document.getElementById(`btn-${idx}`).disabled = false;
+            });
+            document.getElementById('save-btn').disabled = false;
+            document.getElementById('save-btn').classList.remove('frozen');
+	}
 
         // Export Table as Image button functionality (uses html2canvas via CDN)
         document.getElementById('export-table-image-btn').onclick = function () {
@@ -320,6 +329,8 @@
 
         // Save button event
         document.getElementById('save-btn').onclick = freezeCalculation;
+	// UnFreeze button event
+        document.getElementById('active-btn').onclick = unfreezeCalculation;
     </script>
 </body>
 </html>
