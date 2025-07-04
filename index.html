@@ -302,7 +302,7 @@
                 }).then(function(canvas) {
                     try {
                         const link = document.createElement('a');
-                        link.download = 'money_tilled_table.jpg';
+                        link.download = 'dipu_calc_'+new Date().toJSON().slice(0,10).split('-').reverse().join('_')+'.jpg';
                         link.href = canvas.toDataURL('image/jpeg', 0.95);
                         link.click();
                     } catch (e) {
