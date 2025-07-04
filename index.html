@@ -111,6 +111,9 @@
     <button id="save-btn">Save (Freeze Calculation)</button>
     <button id="export-table-image-btn">Export Table as Image</button>
     <script>
+	document.ondblclick = function (e) {
+             e.preventDefault();
+	}
         // Canadian currency denominations (coins and bills)
         // Format: [label, value in dollars]
         const denominations = [
